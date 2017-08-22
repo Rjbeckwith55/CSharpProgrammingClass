@@ -4,3 +4,6 @@ C:\Users\rjbec\OneDrive\Documents\GitHub\Robotics\Lab3.29\Lab3.29\bin\Debug\Lab3
 C:\Users\rjbec\OneDrive\Documents\GitHub\Robotics\Lab3.29\Lab3.29\obj\Debug\Lab3.29.csprojResolveAssemblyReference.cache
 C:\Users\rjbec\OneDrive\Documents\GitHub\Robotics\Lab3.29\Lab3.29\obj\Debug\Lab3.29.exe
 C:\Users\rjbec\OneDrive\Documents\GitHub\Robotics\Lab3.29\Lab3.29\obj\Debug\Lab3.29.pdb
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\CSharp\Lab3.29\Lab3.29\bin\Debug\Lab3.29.exe.config
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\CSharp\Lab3.29\Lab3.29\obj\Debug\Lab3.29.exe
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\CSharp\Lab3.29\Lab3.29\obj\Debug\Lab3.29.pdb

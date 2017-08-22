@@ -1,0 +1,5 @@
+C:\Users\rjbec\Source\Repos\CSharpProgrammingClass\Lab3.29\Lab3.24\bin\Debug\Lab3.24.exe.config
+C:\Users\rjbec\Source\Repos\CSharpProgrammingClass\Lab3.29\Lab3.24\bin\Debug\Lab3.24.exe
+C:\Users\rjbec\Source\Repos\CSharpProgrammingClass\Lab3.29\Lab3.24\bin\Debug\Lab3.24.pdb
+C:\Users\rjbec\Source\Repos\CSharpProgrammingClass\Lab3.29\Lab3.24\obj\Debug\Lab3.24.exe
+C:\Users\rjbec\Source\Repos\CSharpProgrammingClass\Lab3.29\Lab3.24\obj\Debug\Lab3.24.pdb

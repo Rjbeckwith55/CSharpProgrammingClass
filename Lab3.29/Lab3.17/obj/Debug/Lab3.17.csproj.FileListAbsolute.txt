@@ -4,3 +4,9 @@ C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\CSharp\Lab3.29\L
 C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\CSharp\Lab3.29\Lab3.17\obj\Debug\Lab3.17.csprojResolveAssemblyReference.cache
 C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\CSharp\Lab3.29\Lab3.17\obj\Debug\Lab3.17.exe
 C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\CSharp\Lab3.29\Lab3.17\obj\Debug\Lab3.17.pdb
+C:\Users\rjbec\Source\Repos\CSharpProgrammingClass\Lab3.29\Lab3.17\bin\Debug\Lab3.17.exe.config
+C:\Users\rjbec\Source\Repos\CSharpProgrammingClass\Lab3.29\Lab3.17\obj\Debug\Lab3.17.exe
+C:\Users\rjbec\Source\Repos\CSharpProgrammingClass\Lab3.29\Lab3.17\obj\Debug\Lab3.17.pdb
+C:\Users\rjbec\Source\Repos\CSharpProgrammingClass\Lab3.29\Lab3.17\bin\Debug\Lab3.17.exe
+C:\Users\rjbec\Source\Repos\CSharpProgrammingClass\Lab3.29\Lab3.17\bin\Debug\Lab3.17.pdb
+C:\Users\rjbec\Source\Repos\CSharpProgrammingClass\Lab3.29\Lab3.17\obj\Debug\Lab3.17.csprojResolveAssemblyReference.cache

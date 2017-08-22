@@ -15,6 +15,7 @@ namespace Stoplight
         const int Red = 0;
         const int Green = 1;
         const int Yellow = 2;
+        int color = Green;
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +28,46 @@ namespace Stoplight
 
         private void button1_Click(object sender, EventArgs e)
         {
-          
+            
+            if (color == Green)
+            {
+                color = Yellow;
+                pictureBox1.Image = Properties.Resources.stoplight_orange;
+            }
+            else if (color == Yellow)
+            {
+                color = Red;
+                pictureBox1.Image = Properties.Resources.stoplight_red;
+            }
+            else if (color == Red)
+            {
+                color = Green;
+                pictureBox1.Image = Properties.Resources.stoplight_green;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (color == Green)
+            {
+                color = Yellow;
+                pictureBox1.Image = Properties.Resources.stoplight_orange;
+            }
+            else if (color == Yellow)
+            {
+                color = Red;
+                pictureBox1.Image = Properties.Resources.stoplight_red;
+            }
+            else if (color == Red)
+            {
+                color = Green;
+                pictureBox1.Image = Properties.Resources.stoplight_green;
+            }
         }
     }
 }

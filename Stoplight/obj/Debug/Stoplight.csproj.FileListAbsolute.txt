@@ -1,0 +1,9 @@
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\Stoplight\bin\Debug\Stoplight.exe.config
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\Stoplight\bin\Debug\Stoplight.exe
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\Stoplight\bin\Debug\Stoplight.pdb
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\Stoplight\obj\Debug\Stoplight.Form1.resources
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\Stoplight\obj\Debug\Stoplight.Properties.Resources.resources
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\Stoplight\obj\Debug\Stoplight.csproj.GenerateResource.Cache
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\Stoplight\obj\Debug\Stoplight.exe
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\Stoplight\obj\Debug\Stoplight.pdb
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\Stoplight\obj\Debug\Stoplight.csprojResolveAssemblyReference.cache

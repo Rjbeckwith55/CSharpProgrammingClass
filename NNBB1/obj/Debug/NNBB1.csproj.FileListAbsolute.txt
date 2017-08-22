@@ -1,0 +1,5 @@
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\NNBB1\bin\Debug\NNBB1.exe.config
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\NNBB1\bin\Debug\NNBB1.exe
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\NNBB1\bin\Debug\NNBB1.pdb
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\NNBB1\obj\Debug\NNBB1.exe
+C:\Users\rjbec\OneDrive\Documents\GitHub\CSharpProgrammingClass\HelloWorld\NNBB1\obj\Debug\NNBB1.pdb

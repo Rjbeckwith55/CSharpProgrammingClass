@@ -10,8 +10,10 @@ namespace TowersOfHanoi
     {
         public static void Main(String[] args)
         {
+            //ask for the number of disks
+            Console.WriteLine("Enter the number of pegs in the tower: ");
+            int totalDisks = Convert.ToInt32(Console.ReadLine());
             // declare the variables
-            int totalDisks = 3;
             char startPeg = 'A'; 
             char endPeg = 'C';
             char tempPeg = 'B';

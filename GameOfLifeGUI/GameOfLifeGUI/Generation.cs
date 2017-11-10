@@ -23,7 +23,7 @@ numerous examples of nested loops.*/
         {
 
         }
-        public bool IsExtinct()
+        public bool IsExtinct() 
         {
             for (int i = 0; i < BOARD_HEIGHT; i++)
             {

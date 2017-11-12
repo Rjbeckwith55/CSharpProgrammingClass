@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace GameOfLifeGUI
 {
     class Generation
@@ -35,12 +36,33 @@ namespace GameOfLifeGUI
                     if (!showInMarkedState)
                     {
                         //draw generic organism
-                        board[x, y]; // draw something here
+                        g.DrawImage(Properties.Resources.life_unmarked, x * CELL_SIZE, y * CELL_SIZE); // draw something here
                     }
-                    else if (showInMarkedState)
+                    //draw what is going to happen to this cell
+                    else if (board[x, y].state == Cell.SPAWNING)
                     {
-                        //draw what is going to happen to this cell
 
+                        g.DrawImage(Properties.Resources.life_birthing, x * CELL_SIZE, y * CELL_SIZE); // draw something here
+                    }
+                    else if (board[x, y].state == Cell.SURVIVES)
+                    {
+
+                        g.DrawImage(Properties.Resources.life_happy, x * CELL_SIZE, y * CELL_SIZE); // draw something here
+                    }
+                    else if (board[x, y].state == Cell.DEATH_BY_LONELINESS)
+                    {
+
+                        g.DrawImage(Properties.Resources.life_sad, x * CELL_SIZE, y * CELL_SIZE); // draw something here
+                    }
+                    else if (board[x, y].state == Cell.DEATH_BY_OVERCROWDING)
+                    {
+
+                        g.DrawImage(Properties.Resources.life_overcrowded, x * CELL_SIZE, y * CELL_SIZE); // draw something here
+                    }
+                    else if (board[x, y].state == Cell.EMPTY)
+                    {
+
+                        g.DrawImage(Properties.Resources.life_empty, x * CELL_SIZE, y * CELL_SIZE); // draw something here
                     }
                 }
             }
@@ -96,7 +118,32 @@ namespace GameOfLifeGUI
 
         }
 
-        public void AddOrganism(int x,int y)
+        Generation Update()
+        {
+            Generation nextGen = new Generation(); // create the next generation
+            for (int y = 0; y < BOARD_HEIGHT; y++)
+            {
+                for (int x = 0; x < BOARD_WIDTH; x++)
+                {
+                    //set all cells to empty
+                    nextGen.board[x, y].state = Cell.EMPTY;
+                    if (board[x, y].hasOrganism && board[x, y].state == Cell.SURVIVES)
+                    {
+                        nextGen.board[x, y].state = Cell.UNMARKED;
+                        nextGen.board[x, y].hasOrganism = true;
+                    }
+                    //TODO: MIGHT NEED SOMETHING HERE DUE TO WORKSHEET TYPO
+                    if (board[x, y].state == Cell.SPAWNING)
+                    {
+                        nextGen.board[x, y].state = Cell.UNMARKED;
+                        nextGen.board[x, y].hasOrganism = true;
+                    }
+                }
+            }
+            return nextGen;
+        }
+
+        public void AddOrganism(int x, int y)
         {
             board[x, y].hasOrganism = true;
         }
@@ -108,7 +155,7 @@ namespace GameOfLifeGUI
             {
                 for (int x = 0; x < BOARD_WIDTH; x++)
                 {
-                    if (board[x, y].state!=g.board[x,y].state)
+                    if (board[x, y].state != g.board[x, y].state)
                     {
                         return false; // is not equal
                     }
@@ -133,3 +180,4 @@ namespace GameOfLifeGUI
             }
         }
     }
+}

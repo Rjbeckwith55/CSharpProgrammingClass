@@ -14,6 +14,9 @@ namespace GameOfLifeGUI
     {
         const int MARK = 0;
         const int UPDATE = 1;
+        const int MAX_TURNS = 20;
+        int current = 0;
+
         int state = MARK;
         List<Generation> generations = new List<Generation>();
 
@@ -21,20 +24,29 @@ namespace GameOfLifeGUI
         {
             InitializeComponent();
         }
-        bool GameOver()
+        public bool GameOver()
         {
-            if (generations().isExtinct())
+            if (generations[current].IsExtinct())
             {
                 return true;
-            } 
-
-            if() // max number of turns reached
-            return true;
-            for (int i = 0; i < Current generation; i++)
-            {
-                if (generations[i].Equals(Currentgeneration))
             }
-            
+
+            else if (current > MAX_TURNS) // max number of turns reached
+                return true;
+            for (int i = 0; i < current; i++)
+            {
+                if (generations[i].Equals(generations[current]))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            generations.Last().Draw(e.Graphics, Convert.ToBoolean(state));
         }
     }
 }

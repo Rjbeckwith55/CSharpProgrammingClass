@@ -10,8 +10,8 @@ namespace GameOfLifeGUI
 {
     class Generation
     {
-        const int BOARD_WIDTH = 60;
-        const int BOARD_HEIGHT = 40;
+        const int BOARD_WIDTH = 20;
+        const int BOARD_HEIGHT = 20;
         const int CELL_SIZE = 20;
         public Cell[,] board = new Cell[BOARD_WIDTH, BOARD_HEIGHT];
   
@@ -37,7 +37,12 @@ namespace GameOfLifeGUI
                     if (!showInMarkedState)
                     {
                         //draw generic organism
-                        g.DrawImage(Properties.Resources.life_unmarked, x * CELL_SIZE, y * CELL_SIZE); // draw something here
+                        g.DrawImage(Properties.Resources.life_empty, x * CELL_SIZE, y * CELL_SIZE); // draw something here
+                    }
+                    else if (board[x, y].state == Cell.EMPTY)
+                    {
+
+                        g.DrawImage(Properties.Resources.life_empty, x * CELL_SIZE, y * CELL_SIZE); // draw something here
                     }
                     //draw what is going to happen to this cell
                     else if (board[x, y].state == Cell.SPAWNING)
@@ -60,10 +65,10 @@ namespace GameOfLifeGUI
 
                         g.DrawImage(Properties.Resources.life_overcrowded, x * CELL_SIZE, y * CELL_SIZE); // draw something here
                     }
-                    else if (board[x, y].state == Cell.EMPTY)
+                    else if (board[x, y].state == Cell.UNMARKED)
                     {
 
-                        g.DrawImage(Properties.Resources.life_empty, x * CELL_SIZE, y * CELL_SIZE); // draw something here
+                        g.DrawImage(Properties.Resources.life_unmarked, x * CELL_SIZE, y * CELL_SIZE); // draw something here
                     }
                 }
             }

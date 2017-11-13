@@ -13,12 +13,8 @@ namespace GameOfLifeGUI
         const int BOARD_WIDTH = 60;
         const int BOARD_HEIGHT = 40;
         const int CELL_SIZE = 20;
-        Cell[,] board;
-        public Generation()
-        {
-            board = new Cell[BOARD_WIDTH, BOARD_HEIGHT];
-            
-        }
+        public Cell[,] board = new Cell[BOARD_WIDTH, BOARD_HEIGHT];
+  
         public void Mark()
         {
             /*Loop over all the rows and columns in the board and call
@@ -168,7 +164,7 @@ namespace GameOfLifeGUI
             }
             return true;
         }
-        struct Cell
+        public struct Cell
         {
             public bool hasOrganism; //does this square have a life form?
             public int state; //what will happen to this life form (if present)?

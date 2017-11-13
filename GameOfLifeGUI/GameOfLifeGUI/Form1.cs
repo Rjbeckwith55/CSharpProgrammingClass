@@ -16,17 +16,31 @@ namespace GameOfLifeGUI
         const int UPDATE = 1;
         const int MAX_TURNS = 20;
 
+        public const int BOARD_WIDTH = 20;
+        public const int BOARD_HIGHT = 20;
+        public const int CELL_SIZE = 20;
+
+
         int state = MARK;
+        Generation basic = new Generation();
         List<Generation> generations = new List<Generation>();
 
 
         public Form1()
         {
             InitializeComponent();
+            for (int i = 0; i < BOARD_WIDTH; i++)
+            {
+                for (int j = 0; j < BOARD_HIGHT; j++)
+                {
+                    basic.board[i, j].state = 0;
+                }
+            }
+            generations.Add(basic);
         }
         public bool GameOver()
         {
-            if (generations[generations.Count].IsExtinct())
+            if (generations[generations.Count- 1].IsExtinct())
             {
                 return true;
             }
@@ -62,9 +76,43 @@ namespace GameOfLifeGUI
 
             timer1.Stop();
             generations.Clear();
-            Generation SteadyState = new Generation();
-            // add lifeforms
-            SteadyState.AddOrganism(3, 3);
+            Generation currGen = new Generation();
+
+            currGen.board[BOARD_WIDTH / 2, BOARD_HIGHT / 2].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 + 1, BOARD_HIGHT / 2].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2, BOARD_HIGHT / 2 - 1].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 + 1, BOARD_HIGHT / 2 - 1].hasOrganism = true;
+
+            currGen.board[BOARD_WIDTH / 2, BOARD_HIGHT / 2 + 4].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 + 1, BOARD_HIGHT / 2 + 5].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 1, BOARD_HIGHT / 2 + 5].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 + 1, BOARD_HIGHT / 2 + 6].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 1, BOARD_HIGHT / 2 + 6].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2, BOARD_HIGHT / 2 + 7].hasOrganism = true;
+
+            currGen.board[BOARD_WIDTH / 2, BOARD_HIGHT / 2 - 5].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 1, BOARD_HIGHT / 2 - 6].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 + 1, BOARD_HIGHT / 2 - 6].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2, BOARD_HIGHT / 2 - 7].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 + 1, BOARD_HIGHT / 2 - 7].hasOrganism = true;
+
+            currGen.board[BOARD_WIDTH / 2 - 4, BOARD_HIGHT / 2].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 4, BOARD_HIGHT / 2 - 1].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 5, BOARD_HIGHT / 2 - 1].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 5, BOARD_HIGHT / 2 + 1].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 6, BOARD_HIGHT / 2].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 6, BOARD_HIGHT / 2 + 1].hasOrganism = true;
+
+            currGen.board[BOARD_WIDTH / 2 + 5, BOARD_HIGHT / 2].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 + 6, BOARD_HIGHT / 2 - 1].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 + 6, BOARD_HIGHT / 2 + 1].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 + 7, BOARD_HIGHT / 2 + 1].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 + 7, BOARD_HIGHT / 2 - 2].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 + 8, BOARD_HIGHT / 2 - 1].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 + 8, BOARD_HIGHT / 2].hasOrganism = true;
+
+            generations.Add(currGen);
+
             pictureBox1.Invalidate();
             timer1.Start(); 
         }
@@ -99,6 +147,48 @@ namespace GameOfLifeGUI
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void verticalOscillationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            generations.Clear();
+            Generation currGen = new Generation();
+
+            currGen.board[BOARD_WIDTH / 2, BOARD_HIGHT / 2].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2, BOARD_HIGHT / 2 + 1].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2, BOARD_HIGHT / 2 - 1].hasOrganism = true;
+
+
+            currGen.board[BOARD_WIDTH / 2 - 4, BOARD_HIGHT / 2].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 5, BOARD_HIGHT / 2].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 5, BOARD_HIGHT / 2 + 1].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 6, BOARD_HIGHT / 2].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 6, BOARD_HIGHT / 2 + 1].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 7, BOARD_HIGHT / 2 + 1].hasOrganism = true;
+
+
+            generations.Add(currGen);
+
+            pictureBox1.Invalidate();
+            timer1.Start();
+        }
+
+        private void rPentominoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            generations.Clear();
+            Generation currGen = new Generation();
+
+            currGen.board[BOARD_WIDTH / 2, BOARD_HIGHT / 2].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2, BOARD_HIGHT / 2 + 1].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2, BOARD_HIGHT / 2 - 1].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 - 1, BOARD_HIGHT / 2].hasOrganism = true;
+            currGen.board[BOARD_WIDTH / 2 + 1, BOARD_HIGHT / 2 + 1].hasOrganism = true;
+
+            generations.Add(currGen);
+            pictureBox1.Invalidate();
+            timer1.Start();
         }
     }
 }

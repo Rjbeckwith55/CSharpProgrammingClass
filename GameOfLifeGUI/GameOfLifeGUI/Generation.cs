@@ -14,6 +14,11 @@ namespace GameOfLifeGUI
         const int BOARD_HEIGHT = 40;
         const int CELL_SIZE = 20;
         Cell[,] board;
+        public Generation()
+        {
+            board = new Cell[BOARD_WIDTH, BOARD_HEIGHT];
+            
+        }
         public void Mark()
         {
             /*Loop over all the rows and columns in the board and call
@@ -118,7 +123,7 @@ namespace GameOfLifeGUI
 
         }
 
-        Generation Update()
+        public Generation Update()
         {
             Generation nextGen = new Generation(); // create the next generation
             for (int y = 0; y < BOARD_HEIGHT; y++)

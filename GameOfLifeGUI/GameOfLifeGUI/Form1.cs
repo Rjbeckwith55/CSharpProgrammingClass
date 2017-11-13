@@ -19,6 +19,7 @@ namespace GameOfLifeGUI
         int state = MARK;
         List<Generation> generations = new List<Generation>();
 
+
         public Form1()
         {
             InitializeComponent();

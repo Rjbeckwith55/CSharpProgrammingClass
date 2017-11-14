@@ -77,17 +77,39 @@ namespace GameOfLifeGUI
         {
             //sets state flag on whether a cell is going to live or die
             //check for organisms in the area at these locations
-
+            int num = 0;
             //square around the cell
-            board[x, y].state += CountOrganism(x + 1, y);
-            board[x, y].state += CountOrganism(x - 1, y);
-            board[x, y].state += CountOrganism(x, y + 1);
-            board[x, y].state += CountOrganism(x, y - 1);
+            num += CountOrganism(x + 1, y);
+            num += CountOrganism(x - 1, y);
+            num += CountOrganism(x, y + 1);
+            num += CountOrganism(x, y - 1);
             //diagonals
-            board[x, y].state += CountOrganism(x - 1, y - 1);
-            board[x, y].state += CountOrganism(x + 1, y + 1);
-            board[x, y].state += CountOrganism(x - 1, y + 1);
-            board[x, y].state += CountOrganism(x + 1, y - 1);
+            num += CountOrganism(x - 1, y - 1);
+            num += CountOrganism(x + 1, y + 1);
+            num += CountOrganism(x - 1, y + 1);
+            num += CountOrganism(x + 1, y - 1);
+            if (board[x, y].hasOrganism == true)
+            {
+                if (num == 1 || num == 0)
+                {
+                    board[x, y].state = 3;
+                }
+                else if (num > 3 && num < 9)
+                {
+                    board[x, y].state = 2;
+                }
+                else if (num == 2 || num == 3)
+                {
+                    board[x, y].state = 1;
+                }
+            }
+            else
+            {
+                if (num == 3)
+                {
+                    board[x, y].state = 4;
+                }
+            }
         }
         public int CountOrganism(int x, int y)
         {
@@ -161,7 +183,7 @@ namespace GameOfLifeGUI
             {
                 for (int x = 0; x < BOARD_WIDTH; x++)
                 {
-                    if (board[x, y].state != g.board[x, y].state)
+                    if (board[x, y].hasOrganism != g.board[x, y].hasOrganism)
                     {
                         return false; // is not equal
                     }

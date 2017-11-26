@@ -14,7 +14,7 @@ namespace Quadrilateral_Inheritance
         //length * width
         public override double getArea()
         {
-            return coord1.getDistance(coord2) * coord2.getDistance(coord3);
+            return coord1.getDistance(coord2) * coord2.getDistance(coord4);
         }
     }
 }

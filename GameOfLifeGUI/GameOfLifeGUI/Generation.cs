@@ -10,15 +10,11 @@ namespace GameOfLifeGUI
 {
     class Generation
     {
-        const int BOARD_WIDTH = 60;
-        const int BOARD_HEIGHT = 40;
+        const int BOARD_WIDTH = 20;
+        const int BOARD_HEIGHT = 20;
         const int CELL_SIZE = 20;
-        Cell[,] board;
-        public Generation()
-        {
-            board = new Cell[BOARD_WIDTH, BOARD_HEIGHT];
-            
-        }
+        public Cell[,] board = new Cell[BOARD_WIDTH, BOARD_HEIGHT];
+  
         public void Mark()
         {
             /*Loop over all the rows and columns in the board and call
@@ -41,7 +37,12 @@ namespace GameOfLifeGUI
                     if (!showInMarkedState)
                     {
                         //draw generic organism
-                        g.DrawImage(Properties.Resources.life_unmarked, x * CELL_SIZE, y * CELL_SIZE); // draw something here
+                        g.DrawImage(Properties.Resources.life_empty, x * CELL_SIZE, y * CELL_SIZE); // draw something here
+                    }
+                    else if (board[x, y].state == Cell.EMPTY)
+                    {
+
+                        g.DrawImage(Properties.Resources.life_empty, x * CELL_SIZE, y * CELL_SIZE); // draw something here
                     }
                     //draw what is going to happen to this cell
                     else if (board[x, y].state == Cell.SPAWNING)
@@ -64,10 +65,10 @@ namespace GameOfLifeGUI
 
                         g.DrawImage(Properties.Resources.life_overcrowded, x * CELL_SIZE, y * CELL_SIZE); // draw something here
                     }
-                    else if (board[x, y].state == Cell.EMPTY)
+                    else if (board[x, y].state == Cell.UNMARKED)
                     {
 
-                        g.DrawImage(Properties.Resources.life_empty, x * CELL_SIZE, y * CELL_SIZE); // draw something here
+                        g.DrawImage(Properties.Resources.life_unmarked, x * CELL_SIZE, y * CELL_SIZE); // draw something here
                     }
                 }
             }
@@ -76,17 +77,39 @@ namespace GameOfLifeGUI
         {
             //sets state flag on whether a cell is going to live or die
             //check for organisms in the area at these locations
-
+            int num = 0;
             //square around the cell
-            board[x, y].state += CountOrganism(x + 1, y);
-            board[x, y].state += CountOrganism(x - 1, y);
-            board[x, y].state += CountOrganism(x, y + 1);
-            board[x, y].state += CountOrganism(x, y - 1);
+            num += CountOrganism(x + 1, y);
+            num += CountOrganism(x - 1, y);
+            num += CountOrganism(x, y + 1);
+            num += CountOrganism(x, y - 1);
             //diagonals
-            board[x, y].state += CountOrganism(x - 1, y - 1);
-            board[x, y].state += CountOrganism(x + 1, y + 1);
-            board[x, y].state += CountOrganism(x - 1, y + 1);
-            board[x, y].state += CountOrganism(x + 1, y - 1);
+            num += CountOrganism(x - 1, y - 1);
+            num += CountOrganism(x + 1, y + 1);
+            num += CountOrganism(x - 1, y + 1);
+            num += CountOrganism(x + 1, y - 1);
+            if (board[x, y].hasOrganism == true)
+            {
+                if (num == 1 || num == 0)
+                {
+                    board[x, y].state = 3;
+                }
+                else if (num > 3 && num < 9)
+                {
+                    board[x, y].state = 2;
+                }
+                else if (num == 2 || num == 3)
+                {
+                    board[x, y].state = 1;
+                }
+            }
+            else
+            {
+                if (num == 3)
+                {
+                    board[x, y].state = 4;
+                }
+            }
         }
         public int CountOrganism(int x, int y)
         {
@@ -160,7 +183,7 @@ namespace GameOfLifeGUI
             {
                 for (int x = 0; x < BOARD_WIDTH; x++)
                 {
-                    if (board[x, y].state != g.board[x, y].state)
+                    if (board[x, y].hasOrganism != g.board[x, y].hasOrganism)
                     {
                         return false; // is not equal
                     }
@@ -168,7 +191,7 @@ namespace GameOfLifeGUI
             }
             return true;
         }
-        struct Cell
+        public struct Cell
         {
             public bool hasOrganism; //does this square have a life form?
             public int state; //what will happen to this life form (if present)?
